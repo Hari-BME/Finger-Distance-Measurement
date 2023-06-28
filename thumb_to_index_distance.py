@@ -3,12 +3,17 @@ import mediapipe as mp
 import numpy as np
 import math
 import subprocess
+import tkinter as tk
+from tkinter import filedialog
 
 # Install required libraries using pip
 subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
 
 def calculate_thumb_to_index_finger_distance():
-    video_path = input("Enter the video file path: ")
+    root = tk.Tk()
+    root.withdraw()
+    video_path = filedialog.askopenfilename()
+
     KNOWN_DISTANCE = float(input("Enter the known distance from camera to step length measurement in cm: "))
     KNOWN_HEIGHT = float(input("Enter the known height of the step length measurement in cm: "))
     FOCAL_LENGTH = float(input("Enter the focal length of the camera used: "))
