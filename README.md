@@ -12,13 +12,35 @@ pip install -r requirements.txt
 
 ## Usage Instruction
 
-1. Provide the path to the video file when prompted.
-2. Enter the known distance from the camera to the step length measurement in centimeters.
-3. Enter the known height of the step length measurement in centimeters.
-4. Enter the focal length of the camera used.
-5. Choose whether to resize the output display. If yes, enter the desired width and height.
-6. Enter the waitkey value to control the display duration (0 to pause indefinitely, or a positive integer for milliseconds).
-7. Press 'q' to exit the program.
+## Description
+
+The `calculate_thumb_to_index_finger_distance` function in the code calculates the distance between the thumb and index finger based on the hand landmarks detected by the MediaPipe library. The calculation requires the following variables:
+
+- `KNOWN_DISTANCE`: The known distance from the camera to the finger in centimeters. This can be measured using a measuring tape or any other reliable method.
+
+- `KNOWN_HEIGHT`: The known height of the finger from the camera in centimeters. This is the distance from the camera lens to the tip of the finger and can be measured using a measuring tape or any other reliable method.
+
+- `FOCAL_LENGTH`: The focal length of the camera used in millimeters. This determines the field of view and perspective of the camera. The focal length can usually be found in the camera specifications or obtained from the manufacturer.
+
+## Usage
+
+1. Install the required libraries by running `pip install -r requirements.txt`.
+
+2. Run the script `finger_distance_measurement.py`.
+   
+3. Choose the video file or use the webcam to capture the hand gestures.
+
+4. Provide the path to the video file when prompted.
+
+5. Enter the known distance, known height, and focal length when prompted.
+
+6. Choose whether to resize the output display. If yes, enter the desired width and height.
+
+7. Enter the waitkey value to control the display duration (0 to pause indefinitely, or a positive integer for milliseconds).
+
+8. The calculated distance between the thumb and index finger will be displayed in centimeters.
+
+9. Press 'q' to exit the program.
 
 ## Troubleshooting
 
