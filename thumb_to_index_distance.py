@@ -10,15 +10,18 @@ from tkinter import filedialog
 subprocess.call(['pip', 'install', '-r', 'requirements.txt'])
 
 def calculate_thumb_to_index_finger_distance():
-    root = tk.Tk()
-    root.withdraw()
-    video_path = filedialog.askopenfilename()
-
-    KNOWN_DISTANCE = float(input("Enter the known distance from camera to step length measurement in cm: "))
-    KNOWN_HEIGHT = float(input("Enter the known height of the step length measurement in cm: "))
+    use_webcam = input("Do you want to use the webcam? (y/n): ")
+    if use_webcam.lower() == "y":
+        cap = cv2.VideoCapture(0)
+    else:
+        root = tk.Tk()
+        root.withdraw()
+        video_path = filedialog.askopenfilename()
+        cap = cv2.VideoCapture(video_path)
+        
+    KNOWN_DISTANCE = float(input("Enter the known distance from camera to finger in cm: "))
+    KNOWN_HEIGHT = float(input("Enter the known height of the finger from camera in cm: "))
     FOCAL_LENGTH = float(input("Enter the focal length of the camera used: "))
-
-    cap = cv2.VideoCapture(video_path)
 
     # Load the Mediapipe Hand model
     mp_drawing = mp.solutions.drawing_utils
